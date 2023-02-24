@@ -30,7 +30,6 @@ describe('Math class', () => {
         const arr = [4, 5, 2, 8, 11, 9];
 
         const avg = math.avg(arr)
-        
 
         expect(math.avg).toBeDefined();
         expect(avg).toBe(6.5);
