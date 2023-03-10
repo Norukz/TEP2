@@ -62,11 +62,11 @@ router.get('/:id', (req, res) => {
   //true 20% probabilities
   function getRandomBoolSchoolar(){
 
-    prob = getRandomIntInclusive(1, 100);
-    if(prob >= 0 && prob <= 20) {
+    probabilidad = getRandomIntInclusive(1, 100);
+    if(probabilidad >= 0 && probabilidad <= 20) {
         return true;
     }
-    else if(prob >= 21 && prob <= 100){
+    else if(probabilidad >= 21 && probabilidad <= 100){
         return false;
     }
   }
