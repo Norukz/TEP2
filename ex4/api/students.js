@@ -15,11 +15,18 @@ router.get('/', (req, res) => {
     const student = {
       id: `0000${i + 1}`,
       name: faker.name.firstName(),
-      lastName: faker.name.lastName()
+      lastName: faker.name.lastName(),
       // age, grade: use the random inclusive function
+      age: getRandomIntInclusive(18,28),
+      grade: getRandomIntInclusive(1,9),
       // email: faker
+      email: faker.internet.email(),
       // is_regular: use Math.random() true 60% probabilities
+      is_regular: getRandomBoolRegular(),
+      
       // is_regular: use Math.random() true 20% probabilities
+      is_sHolder: getRandomBoolSchoolar()
+
     };
     
     students.push(student);
@@ -34,5 +41,35 @@ router.get('/:id', (req, res) => {
     message: `searching the id: ${id}`
   });
 });
+//Functions
+ function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+  };
+
+  //true 60% probabilities
+  function getRandomBoolRegular(){
+    probabilidad = getRandomIntInclusive(1, 100);
+    if(probabilidad >= 0 && probabilidad <= 60) {
+        return true;
+    }
+    else if(probabilidad >= 61 && probabilidad <= 100){
+        return false;
+    }
+
+  }
+  //true 20% probabilities
+  function getRandomBoolSchoolar(){
+
+    prob = getRandomIntInclusive(1, 100);
+    if(prob >= 0 && prob <= 20) {
+        return true;
+    }
+    else if(prob >= 21 && prob <= 100){
+        return false;
+    }
+  }
+
 
 module.exports = router;
